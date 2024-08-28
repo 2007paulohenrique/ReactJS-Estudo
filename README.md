@@ -1,3 +1,15 @@
+# Estudo da biblioteca ReactJS
+
+
+React é uma biblioteca JavaScript usada principalmente para criar SPA's (Single Page Applications). Em uma SPA, a aplicação é carregada inicialmente em uma única página HTML, e o conteúdo da interface do usuário é atualizado dinamicamente conforme necessário. Isso permite uma experiência de usuário mais rápida e interativa, pois, em vez de recarregar a página inteira ou solicitar novos documentos HTML do servidor para cada interação, o React apenas atualiza os componentes específicos que mudaram. Isso reduz a necessidade de requisições ao servidor e melhora a performance e a responsividade da aplicação.
+
+React utiliza a componentização, que é a divisão da aplicação em diversos componentes para serem reutilizados em várias partes do código. Os componentes renderizam o JSX, assim como o App.js, que também é um componente. Precisa-se criar um arquivo de componente, todos os componentes são arquivos, que são importados em outros arquivos .js em que forem necessários.
+
+## Instalação
+
+1. Instale o [Node.js](https://nodejs.org/), frequentemente usado em projetos React para gerenciar pacotes e bibliotecas.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
