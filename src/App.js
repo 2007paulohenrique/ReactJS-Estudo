@@ -12,6 +12,8 @@ import './App.css';
 // Import dos componentes que, por convenção, possuem o mesmo nome de sua função
 import HelloWorld from './components/HelloWorld';
 import Apresentacao from './components/Apresentacao';
+import Lista from './components/Lista';
+import Form from './components/Form';
 
 
 // Componente principal da aplicação.
@@ -36,6 +38,10 @@ function App() {
       <HelloWorld />
 
       <Apresentacao nome="João" idade="18" profissao="Médico"/>
+
+      <Lista />
+
+      <Form />
     </div>
   );
 }

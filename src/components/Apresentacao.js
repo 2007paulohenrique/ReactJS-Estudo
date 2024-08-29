@@ -6,7 +6,7 @@ function Apresentacao({nome, idade, profissao}) {
         <div>
             <p>Olá, {nome}. Você tem {idade} anos e é {profissao}.</p>
         </div>
-    )
+    );
 }
 
 export default Apresentacao;

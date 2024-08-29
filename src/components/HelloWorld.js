@@ -1,5 +1,5 @@
 // Import de outro componente
-import Frase from './Frase'
+import Frase from './Frase';
 
 // Na pasta components, são armazenados todos os componentes da aplicação.
 // Componentes são reutilizáveis.
@@ -18,7 +18,7 @@ function HelloWorld() {
             <Frase nome="Paulo" />
             <Frase nome="Maria" />
         </div>
-    )
+    );
 }
 
 // Export do componente.
