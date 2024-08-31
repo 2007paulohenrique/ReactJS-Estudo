@@ -14,12 +14,24 @@ import HelloWorld from './components/HelloWorld';
 import Apresentacao from './components/Apresentacao';
 import Lista from './components/Lista';
 import Form from './components/Form';
-
+import Evento from "./components/Evento";
+import Condicional from './components/Condicional';
+import OutraLista from './components/OutraLista';
+import SeuNome from './components/SeuNome';
+import Saudacao from './components/Saudacao';
+import { useState } from 'react';
 
 // Componente principal da aplicação.
 function App() {
   
-  const nome = "mateus";
+  const nome1 = "mateus";
+
+  const lista = ["Matemática", "Português", "Química"];
+  const lista2 = [];
+
+  // State lift é o ato de subir o state a um componente pai comum, para que esse state seja acessível a mais de um componente.
+  // Um componente filho é responsável por alterar o state (setNome) e outros componentes podem usar seu valor por meio da props.
+  const [nome, setNome] = useState();
 
   function soma(a, b) {
     return a + b;
@@ -31,7 +43,7 @@ function App() {
     <div className="App">
       {/* O JSX permite interpolar variáveis, usando {variável}, */}
       {/* além de permitir operações, chamadas de funções, etc... dentro das tags, em seus atributos, ou em qualquer outro lugar do HTML. */}
-      <p> Olá {nome}</p>
+      <p> Olá {nome1}</p>
       <p> Soma: {soma(2, 4)}</p>
 
       {/* Para fazer uso dos componentes, basta abrir uma tag com o seu nome */}
@@ -42,6 +54,20 @@ function App() {
       <Lista />
 
       <Form />
+
+      <Evento />
+
+      <Condicional />
+
+      {/* Um array deve ser passado como atributo do componente OutraLista. */}
+      <OutraLista itens={lista} titulo="Matérias" />
+      <OutraLista itens={lista2} titulo="Escolas" />
+      
+      {/* Componente que altera o state de nome */}
+      <SeuNome setNome={setNome}></SeuNome>
+
+      {/* Componente que usa o state de nome. */}
+      <Saudacao nome={nome}></Saudacao>
     </div>
   );
 }
