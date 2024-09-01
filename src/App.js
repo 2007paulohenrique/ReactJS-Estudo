@@ -1,74 +1,38 @@
-// O arquivo App.js em uma aplicação React é o componente principal/raiz da aplicação. 
-// É a partir deste componente que a estrutura da aplicação é construída, 
-// incluindo a inclusão de outros componentes, definição de rotas, e gerenciamento de estado.
-// Todo o código será trabalhado dentro das funções. Fora delas, terá somente os imports e exports.
+// React Router é um pacote para mudanças de URLs da aplicação.
+// Rotas/views são as páginas da aplicação, onde um componente representa uma página.
+// Dessa forma, é possível acessar outras views sem o reload da página. Comportamento de uma SPA.
+// Uma parte do layout da aplicação é trocada, mudando de uma view para outra.
+// Mudança na estruturação do componente App. 
 
-// JSX (JavaScript XML) é uma extensão de sintaxe para JavaScript usada em aplicações React. 
-// Ele permite que o HTML seja desenvolvido diretamente dentro do código JavaScript.
-// JSX é transformado em chamadas de funções JavaScript que produzem elementos React.
 
-import './App.css';
+import styles from './App.css';
+// Import dos componentes do React Router.
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Contato from './pages/Contato';
+import Empresa from './pages/Empresa';
+import Home from './pages/Home';
+import NavBar from './components/layout/NavBar';
+import Footer from './components/layout/Footer';
 
-// Import dos componentes que, por convenção, possuem o mesmo nome de sua função
-import HelloWorld from './components/HelloWorld';
-import Apresentacao from './components/Apresentacao';
-import Lista from './components/Lista';
-import Form from './components/Form';
-import Evento from "./components/Evento";
-import Condicional from './components/Condicional';
-import OutraLista from './components/OutraLista';
-import SeuNome from './components/SeuNome';
-import Saudacao from './components/Saudacao';
-import { useState } from 'react';
-
-// Componente principal da aplicação.
 function App() {
-  
-  const nome1 = "mateus";
-
-  const lista = ["Matemática", "Português", "Química"];
-  const lista2 = [];
-
-  // State lift é o ato de subir o state a um componente pai comum, para que esse state seja acessível a mais de um componente.
-  // Um componente filho é responsável por alterar o state (setNome) e outros componentes podem usar seu valor por meio da props.
-  const [nome, setNome] = useState();
-
-  function soma(a, b) {
-    return a + b;
-  }
-
-  // As funções com JSX não podem retornar vários elementos, logo, todos os elementos precisam estar dentro de um único elemento pai (wrapped)
   return (
-    // No React, é preferível utilizar className, em vez de class, para referenciar uma classe em um elemento HTML.
-    <div className="App">
-      {/* O JSX permite interpolar variáveis, usando {variável}, */}
-      {/* além de permitir operações, chamadas de funções, etc... dentro das tags, em seus atributos, ou em qualquer outro lugar do HTML. */}
-      <p> Olá {nome1}</p>
-      <p> Soma: {soma(2, 4)}</p>
+    // O componente Router adapta toda a aplicação para o React Router.
+    // Definição das view/rotas e componentes padrão (se repetem nas views).
+    <Router>
+      {/* Componente estático, permanece igual em todas as views. */}
+      <NavBar />
 
-      {/* Para fazer uso dos componentes, basta abrir uma tag com o seu nome */}
-      <HelloWorld />
+      {/* O componente Switch é usado para definir todas as rotas da aplicação */}
+      <Routes>
+        {/* O componente Route é usado para declarar qual componente de página (element) deverá ser renderizado ao acessar uma URL (path). */}
+        <Route exact path="/" element={<Home />} />
+        <Route path="/Empresa" element={<Empresa />} />
+        <Route path="/Contato" element={<Contato />} />
+      </Routes>
 
-      <Apresentacao nome="João" idade="18" profissao="Médico"/>
-
-      <Lista />
-
-      <Form />
-
-      <Evento />
-
-      <Condicional />
-
-      {/* Um array deve ser passado como atributo do componente OutraLista. */}
-      <OutraLista itens={lista} titulo="Matérias" />
-      <OutraLista itens={lista2} titulo="Escolas" />
-      
-      {/* Componente que altera o state de nome */}
-      <SeuNome setNome={setNome}></SeuNome>
-
-      {/* Componente que usa o state de nome. */}
-      <Saudacao nome={nome}></Saudacao>
-    </div>
+      {/* Componente estático. */}
+      <Footer />
+    </Router>
   );
 }
 
